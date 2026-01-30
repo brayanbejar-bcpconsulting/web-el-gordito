@@ -3,7 +3,6 @@ import Header from "../components/layout/Header.astro";
 import SubHeader from "../components/layout/SubHeader.astro";
 import Footer from "../components/layout/Footer.astro";
 import BaseHead from "../components/seo/BaseHead.astro";
-import ScriptTracking from "../components/seo/ScriptTracking.astro";
 import "@styles/global.css";
 
 interface Props {
@@ -29,7 +28,6 @@ const { title, description, image, canonicalURL, type, noIndex } = Astro.props;
             type={type}
             noIndex={noIndex}
         />
-        <ScriptTracking noIndex={noIndex} />
     </head>
     <body>
         <!-- Google Tag Manager (noscript)
