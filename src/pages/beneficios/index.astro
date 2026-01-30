@@ -1,0 +1,60 @@
+---
+import HeroBeneficios from "@/components/sections/page-beneficios/HeroBeneficios.astro";
+import MainLayout from "src/layouts/MainLayout.astro";
+import ProgramaReferidos from "@components/sections/page-beneficios/ProgramaReferidos.astro";
+import BeneficiosExclusivos from "@/components/sections/page-beneficios/BeneficiosExclusivos.astro";
+import CTABeneficios from "@/components/layout/CTABeneficios.astro";
+
+// Schema OfferCatalog para beneficios y promociones
+const schemaBeneficios = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  name: "Beneficios y Cupones El Gordito",
+  description:
+    "Programa de beneficios con cupones de descuento, referidos y ventajas exclusivas para clientes frecuentes.",
+  url: "https://cambioselgordito.com/beneficios",
+  provider: {
+    "@type": "FinancialService",
+    name: "El Gordito",
+    url: "https://cambioselgordito.com",
+  },
+  itemListElement: [
+    {
+      "@type": "Offer",
+      name: "Cupones de Descuento",
+      description:
+        "Obtén mejores tasas con cupones exclusivos en tu primer cambio",
+      url: "https://cambioselgordito.com/beneficios#cupones",
+    },
+    {
+      "@type": "Offer",
+      name: "Programa de Referidos",
+      description:
+        "Gana bonos por cada amigo que refiereas y cambie con nosotros",
+      url: "https://cambioselgordito.com/beneficios#referidos",
+    },
+    {
+      "@type": "Offer",
+      name: "Beneficios Corporativos",
+      description:
+        "Tasas preferenciales para empresas con alto volumen de operaciones",
+      url: "https://cambioselgordito.com/beneficios#corporativos",
+    },
+  ],
+};
+---
+
+<MainLayout
+  title="Beneficios y Cupones El Gordito | Ahorra más en cada Cambio"
+  description="Descubre cómo obtener un tipo de cambio preferencial con nuestros cupones, programa de referidos y beneficios para empresas. ¡Maximiza tu dinero hoy con El Gordito!"
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(schemaBeneficios)}
+  />
+
+  <HeroBeneficios />
+  <ProgramaReferidos />
+  <BeneficiosExclusivos />
+  <CTABeneficios />
+</MainLayout>
