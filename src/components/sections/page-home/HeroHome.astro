@@ -1,59 +1,116 @@
 ---
 import ContainerSection from "@/components/ui/ContainerSection.astro";
 import { Image } from "astro:assets";
+import WidgetExchangeCalculator from "@/components/WidgetExchangeCalculator.astro";
 
 // Imágenes
 import sbsLogo from "@assets/home/sbs-logo.webp";
-import Calculadora from "@/components/Calculadora.astro";
-import RateHistoryTable from "@/components/RateHistoryTable.astro";
+import coinLeft from "@assets/shared/coin-left.webp";
+import coinRight from "@assets/shared/coin-right.webp";
 ---
 
 <ContainerSection
   ariaLabelledby="hero-heading"
-  bgColor="bg-linear-to-b from-primary-500 to-primary-800"
-  classContainer="text-neutral-cool-50 text-center flex flex-col lg:flex-row items-center lg:justify-between lg:gap-8 gap-12"
+  id="hero-exchange"
+  class="relative overflow-hidden" 
+  classContainer="relative"
+  maxWidth="max-w-6xl"
 >
-  <header
-    class="flex flex-col items-center lg:items-start gap-4 lg:text-left lg:w-[45%]"
-  >
-    <span
-      class="w-fit bg-primary-100 px-4 py-1 rounded-full text-primary-700 font-bold"
-    >
-      Cambia Dólares Online
-    </span>
-    <h1 id="hero-heading">
-      El tipo de cambio que tu dinero merece: <strong class="text-secondary-200"
-        >Seguro, rápido y 100% online.</strong
-      >
-    </h1>
+  <div class="hidden md:block pointer-events-none select-none">
+    <Image 
+      src={coinLeft} 
+      alt="" 
+      class="z-30 absolute -left-50 top-[10%] w-32 lg:w-48 xl:w-56 floating-element"
+      style="animation-delay: 0s;"
+    />
+    <Image 
+      src={coinLeft} 
+      alt="" 
+      class="z-30 absolute -left-35 bottom-[15%] w-24 lg:w-38 floating-element"
+      style="animation-delay: 2s;"
+    />
 
-    <p class="text-sm lg:text-base">
-      Ahorra en cada transacción con la casa de cambio digital que entiende el
-      valor de tu esfuerzo. <strong>Cambia tus dólares y soles</strong> desde cualquier
-      lugar del Perú con respaldo legal y rapidez bancaria.
-    </p>
+    <Image 
+      src={coinRight} 
+      alt="" 
+      class="z-30 absolute -right-50 top-[1%] w-36 lg:w-52 xl:w-60 floating-element"
+      style="animation-delay: 1s;"
+    />
+    <Image 
+      src={coinRight} 
+      alt="" 
+      class="z-30 absolute -right-35 bottom-[10%] w-28 lg:w-40 floating-element"
+      style="animation-delay: 3s;"
+    />
+  </div>
 
-    <article class="flex flex-col gap-4">
-      <p>
-        <strong> Estamos registrados ante la SBS: </strong>
+  <div class="hero-capa relative z-10 flex flex-col lg:flex-row gap-4 items-center lg:justify-between md:bg-linear-to-b md:from-primary-500 md:to-primary-800 md:p-10 lg:p-10 rounded-4xl text-neutral-cool-50 text-center lg:text-left">
+    
+    <header class="bg-linear-to-b p-6 from-primary-500 to-primary-800 md:bg-none flex flex-col items-center lg:items-start gap-5 lg:w-full rounded-4xl ">
+      <span class="w-fit bg-primary-50 px-4 py-1 rounded-full text-primary-700 font-bold text-sm">
+        Cambia Dólares Online
+      </span>
+      
+      <h1 id="hero-heading">
+        El tipo de cambio que tu dinero merece: <strong class="text-secondary-200">Seguro, rápido y 100% online.</strong>
+      </h1>
+
+      <p class="hidden lg:inline-block lg:text-base">
+        Ahorra en cada transacción con la casa de cambio digital que entiende el
+        valor de tu esfuerzo. <strong>Cambia tus dólares y soles</strong> desde cualquier
+        lugar del Perú con respaldo legal y rapidez bancaria.
       </p>
 
-      <div class="bg-neutral-cool-50 px-6 py-2 rounded-full max-w-65">
-        <Image
-          src={sbsLogo}
-          alt="Logo SBS"
-          quality={85}
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-    </article>
-  </header>
+      <article class="flex flex-col gap-4 mt-2">
+        <p class="text-xs font-bold uppercase tracking-wider">Registrados ante la SBS:</p>
+        <div class="bg-neutral-cool-50 px-6 py-2 rounded-2xl max-w-60">
+          <Image src={sbsLogo} alt="Logo SBS" loading="eager" />
+        </div>
+      </article>
+    </header>
 
-  <article
-    class="flex flex-col items-center justify-end lg:flex-row gap-8 lg:w-[55%]"
-  >
-    <RateHistoryTable />
-    <Calculadora />
-  </article>
+    <div class="max-w-115 flex justify-center lg:justify-end">
+      <WidgetExchangeCalculator />
+    </div>
+  </div>
 </ContainerSection>
+
+<style>
+  /* Animación orgánica de flotación */
+  .floating-element {
+    animation: floating 2s ease-in-out infinite;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+    will-change: transform;
+  }
+
+  @keyframes floating {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(5px, -25px) rotate(3deg); }
+    66% { transform: translate(-5px, -15px) rotate(-2deg); }
+  }
+
+  /* Ajuste para evitar que las monedas tapen el contenido en pantallas intermedias */
+  @media (max-width: 1400px) {
+    .floating-element {
+      scale: 0.8;
+    }
+  }
+
+  /* Colocar partículas solo para desktop */
+  @media (min-width: 768px) {
+    .hero-capa::before {
+      content: "";
+      background-image: url('/circle-particle.webp');
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import ContainerSection from "@/components/ui/ContainerSection.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+---
+
+<ContainerSection
+  id="seguridad-confianza"
+  bgColor="bg-white"
+  class="py-12"
+  classContainer="space-y-10"
+>
+  <SectionHeading
+    id="heading-seguridad"
+    align="center"
+    shortText="Seguridad y Confianza"
+    title="¿Por qué es seguro cambiar"
+    subtitle="con Nosotros?"
+    description="Tu tranquilidad es nuestra prioridad. Contamos con el respaldo legal y la trayectoria necesaria para garantizar que cada operación sea **transparente y exitosa.**"
+  />
+
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="group p-8 bg-neutral-50 rounded-3xl border border-neutral-100 flex flex-col items-center text-center gap-4 transition-all hover:shadow-xl hover:bg-white">
+      <div class="bg-primary-100 p-4 rounded-2xl text-primary-600 transition-transform group-hover:rotate-6">
+        <Icon name="shield-check" class="size-10" />
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold text-primary-950">Respaldo de la SBS</h3>
+        <p class="text-neutral-500 leading-relaxed text-sm">
+          Estamos formalmente registrados ante la <strong>Superintendencia de Banca, Seguros y AFP</strong>. Cumplimos con todas las normativas de seguridad financiera en el Perú.
+        </p>
+      </div>
+    </div>
+
+    <div class="group p-8 bg-neutral-50 rounded-3xl border border-neutral-100 flex flex-col items-center text-center gap-4 transition-all hover:shadow-xl hover:bg-white">
+      <div class="bg-secondary-100 p-4 rounded-2xl text-secondary-600 transition-transform group-hover:-rotate-6">
+        <Icon name="trending-up" class="size-10" />
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold text-primary-950">Solidez en el Mercado</h3>
+        <p class="text-neutral-500 leading-relaxed text-sm">
+          Hemos gestionado más de <strong>S/ 6,500 millones cambiados</strong>, brindando siempre el tipo de cambio más competitivo y una ejecución inmediata.
+        </p>
+      </div>
+    </div>
+  </div>
+</ContainerSection>
