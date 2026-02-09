@@ -26,7 +26,6 @@ export interface ClientTab {
  * Opciones de navegación principal
  */
 export const NAV_OPTIONS: NavItem[] = [
-  { name: "Inicio", href: "/", iconName: "home" },
   { name: "Nosotros", href: "/nosotros", iconName: "users" },
   {
     name: "Beneficios",

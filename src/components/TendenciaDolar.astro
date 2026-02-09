@@ -95,7 +95,7 @@ import SectionHeading from "@/components/ui/SectionHeading.astro";
 <style>
   @reference "../styles/global.css";
   .filter-btn.active {
-    @apply bg-white text-blue-600 shadow-sm;
+    @apply bg-white text-primary-600 shadow-sm;
   }
 </style>
 
@@ -159,7 +159,7 @@ import SectionHeading from "@/components/ui/SectionHeading.astro";
         datasets: [
           {
             data: dataSlice,
-            borderColor: "#2563eb",
+            borderColor: "#037c02",
             backgroundColor: (ctx: ScriptableContext<"line">) => {
               const chartArea = ctx.chart.chartArea;
               if (!chartArea) return undefined;
@@ -169,8 +169,8 @@ import SectionHeading from "@/components/ui/SectionHeading.astro";
                 0,
                 chartArea.bottom,
               );
-              gradient.addColorStop(0, "rgba(37, 99, 235, 0.2)");
-              gradient.addColorStop(1, "rgba(37, 99, 235, 0)");
+              gradient.addColorStop(0, "rgba(47,132,10, 0.4)");
+              gradient.addColorStop(1, "rgba(47, 132, 10, 0)");
               return gradient;
             },
             fill: true,
@@ -192,7 +192,7 @@ import SectionHeading from "@/components/ui/SectionHeading.astro";
           legend: { display: false },
           tooltip: {
             enabled: true, // Forzamos a que esté activo
-            backgroundColor: "#2563eb",
+            backgroundColor: "#037c02",
             padding: 12,
             titleFont: { size: 14, weight: "bold" },
             bodyFont: { size: 13 },

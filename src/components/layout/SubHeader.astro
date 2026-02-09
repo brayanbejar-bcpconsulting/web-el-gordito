@@ -23,14 +23,14 @@ const tabInactive = "text-primary-100 hover:text-white hover:bg-primary-400/50";
 
 <nav 
   id="sub-header"
-  class="hidden lg:block px-[5%] bg-primary-500 border-t border-primary-500/20 relative z-40 transition-all duration-300 will-change-transform"
+  class="hidden lg:block px-[5%] bg-neutral-50 border-t border-primary-500/20 relative z-40 transition-all duration-300 will-change-transform"
   aria-label="Navegación por tipo de cliente"
 >
   <div class="max-w-350 flex items-center justify-center lg:justify-between py-2 mx-auto">
     
     <!-- Tabs: Personas | Empresas -->
     <div 
-      class="flex items-center gap-1 bg-primary-800/50 p-1 rounded-full"
+      class="flex items-center gap-1 bg-primary-500 p-1 rounded-full"
       role="group"
       aria-label="Tipo de cliente"
     >
@@ -49,7 +49,7 @@ const tabInactive = "text-primary-100 hover:text-white hover:bg-primary-400/50";
 
     <!-- Badges de confianza -->
     <aside 
-      class="hidden md:flex items-center gap-2 text-sm text-primary-100 font-semibold"
+      class="hidden md:flex items-center gap-2 text-sm text-primary-600 font-semibold"
       aria-label="Indicadores de confianza"
     >
       {badges.map((badge, index) => (
@@ -58,7 +58,7 @@ const tabInactive = "text-primary-100 hover:text-white hover:bg-primary-400/50";
             <span class="w-px h-4 bg-primary-500/30" aria-hidden="true"></span>
           )}
           <span class="flex items-center gap-2">
-            <Icon name={badge.icon} class="size-4 text-secondary-200" aria-hidden="true" />
+            <Icon name={badge.icon} class="size-6 text-secondary-500" aria-hidden="true" />
             <span>{badge.text}</span>
           </span>
         </>

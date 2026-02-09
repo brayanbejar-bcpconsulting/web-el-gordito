@@ -5,7 +5,8 @@ import { APP_URLS } from "@/utils/navigation";
 const currentYear = new Date().getFullYear();
 
 // Image
-import logo from "@assets/shared/logotipo.png";
+import logo from "@assets/shared/logo.png";
+import { Image } from "astro:assets";
 ---
 
 <footer
@@ -21,9 +22,9 @@ import logo from "@assets/shared/logotipo.png";
       class="w-full sm:w-[70%] lg:w-[25%] flex flex-col items-center lg:items-start gap-4 text-center lg:text-start"
     >
       <a href="/" aria-label="Ir al inicio de El Gordito">
-        <img
+        <Image
           loading="lazy"
-          src="/logo.png"
+          src={logo}
           alt="El Gordito - Casa de cambio digital"
           class="w-48 lg:w-64"
           width={256}
